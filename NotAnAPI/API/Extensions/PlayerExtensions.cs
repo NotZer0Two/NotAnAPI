@@ -1,6 +1,9 @@
 ﻿using Exiled.API.Enums;
 using Exiled.API.Extensions;
 using Exiled.API.Features;
+using NotAnAPI.Features.Logger;
+using NotAnAPI.Features.UI.API.Enums;
+using NotAnAPI.Features.UI;
 using NotAnAPI.Utils;
 using PlayerRoles;
 using System;
@@ -13,6 +16,14 @@ namespace NotAnAPI.API.Extensions
 {
     public static class PlayerExtensions
     {
+        public static void SendMessage(this Player player, UIScreenZone zone, string text, float duration)
+        {
+            if (player.GameObject.TryGetComponent(out UIManager hud))
+            {
+                hud.AddMessage(zone, text, duration);
+            }
+        }
+
         public static SavedPlayer SavePlayer(this Player player)
         {
             SavedPlayer playerSaved = new SavedPlayer()
