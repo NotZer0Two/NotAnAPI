@@ -24,7 +24,10 @@ namespace APITest.UI
         public override List<Element> Elements { get; set; } = new()
         {
             //Alive Elements
-            new HelloWorldElement()
+            new HelloWorldElement(),
+
+            //Both
+            new ProfilePictureElement(),
         };
     }
 }

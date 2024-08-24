@@ -11,6 +11,7 @@ namespace NotAnAPI.Features.UI.API.Enums
 
         Spectator,
         Alive,
+        Both
 
     }
 }

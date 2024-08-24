@@ -51,7 +51,7 @@ namespace NotAnAPI.Features.UI.API.Abstract
         public void WithNotifications(List<string> notifications) => _notifications = notifications;
         public void WithColor(string color) => _color = color;
         public void WithPlayer(Player player) => _player = player;
-        public void WithPFP(string pfp) => PFP = pfp;
+        public void WithPFP(string pfp) => PFP = "<indent=-25%>" + pfp + "</indent>";
 
         public abstract void CustomUIAlive(StringBuilder builder, UIScreenZone zone);
         public abstract void CustomUISpectator(StringBuilder builder, UIScreenZone zone);

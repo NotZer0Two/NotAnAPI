@@ -31,10 +31,10 @@ namespace NotAnAPI.Features.UI.API.Abstract
         {
             foreach (Element elements in Elements)
             {
-                if (elements.UI != type) continue;
+                if (elements.UI != type && elements.UI != UIType.Both) continue;
                 if (elements.Zone != zone) continue;
 
-                builder.Append(elements.OnRender(_player).Replace("PFP", PFP));
+                builder.Append(elements.OnRender().Replace("PFP", PFP));
             }
 
         }

@@ -108,6 +108,7 @@
     <Compile Include="APITestMain.cs" />
     <Compile Include="Commands\AddUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Elements\ProfilePictureElement.cs" />
     <Compile Include="UI\Elements\HelloWorldElement.cs" />
     <Compile Include="UI\PersonalDisplayBuilder.cs" />
     <Compile Include="UI\PersonalElementDisplay.cs" />
