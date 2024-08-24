@@ -255,11 +255,16 @@
     <Compile Include="API\Translator\Languages.cs" />
     <Compile Include="API\Translator\TranslationResponse.cs" />
     <Compile Include="Features\Base\APIFeaturesManager.cs" />
+    <Compile Include="Features\UI\API\Abstract\GameElementDisplay.cs" />
     <Compile Include="Features\UI\API\Abstract\GameDisplayBuilder.cs" />
+    <Compile Include="Features\UI\API\Elements\Element.cs" />
+    <Compile Include="Features\UI\API\Elements\TextSettings.cs" />
     <Compile Include="Features\UI\API\Enums\AlignStyle.cs" />
     <Compile Include="Features\UI\API\Enums\CaseStyle.cs" />
     <Compile Include="Features\UI\API\Enums\MeasurementUnit.cs" />
     <Compile Include="Features\UI\API\Enums\UIScreenZone.cs" />
+    <Compile Include="Features\UI\API\Enums\UIType.cs" />
+    <Compile Include="Features\UI\API\Interfaces\IElements.cs" />
     <Compile Include="Features\UI\API\Notification\UINotification.cs" />
     <Compile Include="Features\UI\Loader\SteamLoader.cs" />
     <Compile Include="Features\UI\Patch\UIRedirect.cs" />
