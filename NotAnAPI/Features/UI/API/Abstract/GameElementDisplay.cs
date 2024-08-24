@@ -19,7 +19,7 @@ namespace NotAnAPI.Features.UI.API.Abstract
     {
         private readonly StringBuilder _builder;
         public abstract List<Element> Elements { get; set; }
-
+ 
         public GameElementDisplay(StringBuilder builder) : base(builder)
         {
             _builder = builder;
@@ -34,7 +34,7 @@ namespace NotAnAPI.Features.UI.API.Abstract
                 if (elements.UI != type) continue;
                 if (elements.Zone != zone) continue;
 
-                builder.Append(elements.OnRender());
+                builder.Append(elements.OnRender(_player).Replace("PFP", PFP));
             }
 
         }

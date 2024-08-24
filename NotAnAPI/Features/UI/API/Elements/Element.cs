@@ -1,6 +1,9 @@
-﻿using NotAnAPI.Features.UI.API.Enums;
+﻿using Exiled.API.Features;
+using NotAnAPI.API.Extensions;
+using NotAnAPI.Features.UI.API.Enums;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +21,13 @@ namespace NotAnAPI.Features.UI.API.Elements
 
         public abstract Vector2 Position { get; set; }
 
-        public abstract float Size { get; set; }
+        public abstract TextSettings Settings { get; set; }
 
         public abstract UIScreenZone Zone { get; set; }
 
         public abstract UIType UI { get; set; }
 
+        public virtual string OnRender(Player player) => OnRender();
         public virtual string OnRender()
         {
             StringBuilder sb = new StringBuilder();
@@ -32,22 +36,24 @@ namespace NotAnAPI.Features.UI.API.Elements
 
             foreach (var line in lineList)
             {
+                //Basic
                 float xCoordinate = Position.x;
                 float yCoordinate = GetVOffset(Zone) - yOffset;
 
-                if (xCoordinate != 0) sb.Append($"<pos={xCoordinate:0.#}>");
-                sb.Append("<Line-height=0>");
-                if (yCoordinate != 0) sb.Append($"<voffset={yCoordinate:0.#}>");
-                sb.Append($"<size={Size}>");
+                if (xCoordinate != 0) sb.AddHorizontalPos(xCoordinate);
+                if (Settings.LineHeight >= 0) sb.SetLineHeight(Settings.LineHeight);
+                if (yCoordinate != 0) sb.AddVOffset(yCoordinate);
+                if (Settings.Size > 0) sb.SetSize(Settings.Size);
+                //Other options
 
                 sb.Append(line);
 
-                sb.Append("</size>");
-                if (yCoordinate != 0) sb.Append("</voffset>");
+                //Close Basic Settings
+                if (Settings.Size > 0) sb.CloseSize();
+                if (yCoordinate != 0) sb.CloseVOffset();
 
-                sb.Append('\n');
-
-                yOffset += Size;
+                sb.Append("\n");
+                yOffset += Settings.Size;
             }
 
             return sb.ToString();
@@ -64,8 +70,14 @@ namespace NotAnAPI.Features.UI.API.Elements
                 case UIScreenZone.Top:
                     sizeOffset = -GetTextHeight();
                     break;
+                case UIScreenZone.CenterTop:
+                    sizeOffset = -GetTextHeight();
+                    break;
                 case UIScreenZone.Center:
                     sizeOffset = -GetTextHeight() / 2;
+                    break;
+                case UIScreenZone.CenterBottom:
+                    sizeOffset = -GetTextHeight();
                     break;
                 case UIScreenZone.Bottom:
                     sizeOffset = 0;

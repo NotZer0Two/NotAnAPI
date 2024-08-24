@@ -14,7 +14,12 @@ namespace APITest.UI.Elements
         public override string Name { get; set; } = "Hello World";
         public override string Text { get; set; } = "Hello World";
         public override Vector2 Position { get; set; } = new Vector2(-500, 300);
-        public override float Size { get; set; } = 60;
+
+        public override TextSettings Settings { get; set; } = new()
+        {
+            Size = 60,
+        };
+
         public override UIScreenZone Zone { get; set; } = UIScreenZone.Center;
         public override UIType UI { get; set; } = UIType.Alive;
 

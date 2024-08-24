@@ -258,6 +258,7 @@
     <Compile Include="Features\UI\API\Abstract\GameElementDisplay.cs" />
     <Compile Include="Features\UI\API\Abstract\GameDisplayBuilder.cs" />
     <Compile Include="Features\UI\API\Elements\Element.cs" />
+    <Compile Include="Features\UI\API\Elements\TextSettings.cs" />
     <Compile Include="Features\UI\API\Enums\AlignStyle.cs" />
     <Compile Include="Features\UI\API\Enums\CaseStyle.cs" />
     <Compile Include="Features\UI\API\Enums\MeasurementUnit.cs" />
