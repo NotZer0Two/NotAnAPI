@@ -29,6 +29,8 @@ namespace APITest.Commands
 
         public override bool GetRequirePlayer() => true;
 
+        public override string[] GetUsage() => ["string"];
+
         public override bool PlayerBasedFunction(Player player, string[] args, out string result)
         {
             if (!TryGetArgument(args, 1, out string arg1))

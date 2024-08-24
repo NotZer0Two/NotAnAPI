@@ -17,7 +17,7 @@ namespace NotAnAPI
         public override string Author => "NotZer0Two";
         public override string Name => "NotAnAPI";
 
-        public override Version Version => new Version(0, 0, 1);
+        public override Version Version => new Version(0, 0, 2);
 
         public static NotAnAPIMain Instance = null;
 

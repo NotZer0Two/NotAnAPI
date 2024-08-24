@@ -10,13 +10,15 @@ namespace NotAnAPI.API.Commands
     /// <summary>
     /// Base system for NotAnAPI Commands
     /// </summary>
-    public abstract class NotCommands : ICommand
+    public abstract class NotCommands : ICommand, IUsageProvider
     {
         public string Command => GetCommandName();
 
         public string[] Aliases => GetAliases();
 
         public string Description => GetDescription();
+
+        public string[] Usage => GetUsage();
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
@@ -114,5 +116,7 @@ namespace NotAnAPI.API.Commands
         public abstract string GetDescription();
         public abstract string[] GetAliases();
         public abstract string[] GetPerms();
+
+        public abstract string[] GetUsage();
     }
 }
