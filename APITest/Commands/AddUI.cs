@@ -26,14 +26,25 @@ namespace APITest.Commands
 
         public override string[] GetPerms() => null;
 
-        public override bool Function(string[] args, ICommandSender sender, out string result)
-        {
-            Player player = Player.Get(sender);
+        public override bool GetRequirePlayer() => true;
 
-            PersonalDisplayBuilder display = new PersonalDisplayBuilder(StringBuilderPool.Shared.Rent());
+        public override bool PlayerBasedFunction(Player player, string[] args, out string result)
+        {
+            if (!TryGetArgument(args, 1, out string arg1))
+            {
+                PersonalDisplayBuilder display1 = new PersonalDisplayBuilder(StringBuilderPool.Shared.Rent());
+
+                player.GameObject.AddComponent<UIManager>()._mainDisplay = display1;
+
+                result = "PersonalDisplay enabled!";
+                return true;
+            }
+
+            PersonalElementDisplay display = new PersonalElementDisplay(StringBuilderPool.Shared.Rent());
 
             player.GameObject.AddComponent<UIManager>()._mainDisplay = display;
-            result = $"Working.";
+
+            result = $"PersonalElement Enabled";
             return false;
         }
 
