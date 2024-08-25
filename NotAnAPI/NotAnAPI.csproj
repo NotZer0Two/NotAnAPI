@@ -249,12 +249,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Commands\NotCommands.cs" />
+    <Compile Include="API\Extensions\HashsetExtension.cs" />
     <Compile Include="API\Extensions\HintHelper.cs" />
     <Compile Include="API\Extensions\PlayerExtensions.cs" />
     <Compile Include="API\Translator\GoogleTranslator.cs" />
     <Compile Include="API\Translator\Languages.cs" />
     <Compile Include="API\Translator\TranslationResponse.cs" />
     <Compile Include="Features\Base\APIFeaturesManager.cs" />
+    <Compile Include="Features\PAPI\API\Abstract\PlaceholderExpansion.cs" />
+    <Compile Include="Features\PAPI\API\PlaceholderAPI.cs" />
+    <Compile Include="Features\PAPI\impl\PlayerPlaceholder.cs" />
+    <Compile Include="Features\PAPI\PAPIFeature.cs" />
     <Compile Include="Features\UI\API\Abstract\GameElementDisplay.cs" />
     <Compile Include="Features\UI\API\Abstract\GameDisplayBuilder.cs" />
     <Compile Include="Features\UI\API\Elements\Element.cs" />
