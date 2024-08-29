@@ -71,7 +71,7 @@ namespace NotAnAPI.Features.UI
                 }
             });
 
-            _player.Connection.Send(new HintMessage(new TextHint(msg, new HintParameter[] { new StringHintParameter(string.Empty) }, null, 2)));
+            _player.Connection.Send(new HintMessage(new TextHint(msg, new HintParameter[] { new StringHintParameter(string.Empty) }, new HintEffect[] { HintEffectPresets.TrailingPulseAlpha(1, 1, 1) }, 2)));
         }
         public void AddMessage(UIScreenZone zone, string message, float time = 10f)
         {
